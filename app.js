@@ -49,6 +49,15 @@ app.post('/getAnswer', upload.single('filesInput'), async (req, res) => {
         );
 
         console.log('Deepgram response:', response);
+
+        fs.unlink(file.path, (err) => {
+            if (err) {
+                console.error('Error deleting file:', err);
+            } else {
+                console.log('File deleted successfully');
+            }
+        });
+        
         const transcript = response.result.results.channels[0].alternatives[0].transcript;
         const summary = response.result.results.summary;
 
