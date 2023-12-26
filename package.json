@@ -1,0 +1,17 @@
+{
+  "name": "minutes-maker",
+  "version": "1.0.0",
+  "description": "A web app that takes an audio input and transcribes it into minutes",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "arunnats",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "path": "^0.12.7"
+  }
+}
