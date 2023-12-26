@@ -47,7 +47,7 @@ img{
     min-height: 500px;
     max-height: fit-content;
     background-color: #FFE8D1;
-    border-radius: 4%;
+    border-radius: 1%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -63,14 +63,15 @@ img{
     padding-top: 25px;
 }
 
-#generatedStory {
+#generatedMinutes {
     font-size: 16px;
     text-align: justify;
     padding: 20px;
     margin: 0; /* Remove default margin */
+    white-space: pre-line; /* Preserve new lines and white spaces */
 }
 
-#emojisForm{
+#audioForm{
     display: flex;
     flex-direction: column;
     padding: 5px;
@@ -180,6 +181,15 @@ select:focus {
 }
 
 @media (max-width: 767px){
+
+    h1{
+        font-size: 48px;
+    }
+
+    h4{
+
+    }
+
     .footertext
     {
     color: aliceblue;
@@ -194,7 +204,7 @@ select:focus {
     min-height: 320px;
     max-height: fit-content;
     background-color: #FFE8D1;
-    border-radius: 4%;
+    border-radius: 1%;
     display: flex;
     flex-direction: column;
     align-items: center;

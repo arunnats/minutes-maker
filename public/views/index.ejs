@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Roboto+Condensed:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container" bis_skin_checked="1">
@@ -32,7 +32,7 @@
       <h4>Meeting audio to minutes, in minutes.</h4>
       <h5>Powered by AI</h5>
 
-      <form id="emojisForm" action="/getAnswer" method="post">
+      <form id="audioForm" action="/getAnswer" method="post">
           <label id="filesInputLabel" for="filesInput">Choose a File:</label>
           <input type="file" id="filesInput" name="filesInput" accept=".mp3, .wav, .ogg" onchange="displayFileName(this)" />
           <span id="filesSelected"></span>
@@ -40,7 +40,7 @@
       </form>
       
       <div class="response" id="responseArea">
-          <p id="generatedMinutes"></p>
+        <p id="generatedMinutes"></p>
       </div>
   </div>
 
@@ -63,26 +63,40 @@
       </div>
 
     <script>
-      const audioInput = document.getElementById('audioInput');
+      
+    function handleFile(event) {
+      const file = event.target.files[0];
+      const formData = new FormData();
+      formData.append('filesInput', file);
 
-      audioInput.addEventListener('change', handleFile);
+      fetch('/getAnswer', {
+          method: 'POST',
+          body: formData,
+      })
+      .then(response => response.json())
+      .then(data => {
+          console.log(data);
 
-      function displayFileName(input) {
+          const formattedText = data.replace(/\n/g, '<br>');
+
+          document.getElementById('generatedMinutes').innerHTML = formattedText;
+      })
+      .catch(error => console.error(error));
+    }
+               
+
+    function displayFileName(input) {
         const filesSelected = document.getElementById('filesSelected');
         filesSelected.textContent = input.files[0] ? input.files[0].name : '';
-    }    
-      
-      function handleFile(event) {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-      
-        reader.onload = function (e) {
-          const audioData = e.target.result;
-          // Process the audio data as needed
-        };
-      
-        reader.readAsArrayBuffer(file);
-      } 
+    }
+    
+    document.getElementById('audioForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+    });
+    
+    const audioInput = document.getElementById('filesInput');
+    audioInput.addEventListener('change', handleFile);
+    
     </script>
 </body>
 </html>
