@@ -1,5 +1,16 @@
 # Minutes Maker
+
+Preview  minutes-maker-409317.el.r.appspot.com
+
+<img width="960" alt="Screenshot 2023-12-27 152200" src="https://github.com/arunnats/minutes-maker/assets/118368673/c3ba7df9-02d1-4787-bc9a-dba65701cf11">
+<img width="960" alt="Screenshot 2023-12-27 152230" src="https://github.com/arunnats/minutes-maker/assets/118368673/7fdb9f31-f7aa-4096-96c1-3a930c454da7">
+Desktop site
+
 Minutes Maker is a web application designed to effortlessly transform audio recordings of meetings into well-organized minutes using cutting-edge technologies. The app leverages Deepgram Nova 2 for accurate audio transcriptions and OpenAI's GPT-3.5 Turbo for generating concise and clear meeting minutes.
+
+<img width="180" alt="Screenshot 2023-12-27 152132" src="https://github.com/arunnats/minutes-maker/assets/118368673/fc12ab81-6a92-4e29-960e-30f0568dc4c5">
+
+Mobile site
 
 ## Features
 Audio Format Support: Minutes Maker accepts both .mp3 and .wav audio file formats, providing flexibility for users to upload their meeting recordings.
