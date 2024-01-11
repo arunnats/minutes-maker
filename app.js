@@ -31,6 +31,7 @@ const upload = multer({storage: multer.memoryStorage(),});
 
 app.get('/', (req, res) => {
     res.render('index');
+    console.log(`index`);
 });
 
 app.post('/getAnswer', upload.single('filesInput'), async (req, res) => {
