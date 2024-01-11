@@ -56,7 +56,7 @@ img{
 
 .response img {
     border-radius: 2px;
-    width: 100%; /* Make the image take 100% of the container width */
+    width: 100%; 
     height: auto;
     margin: auto;
     padding: 20px;
@@ -67,8 +67,8 @@ img{
     font-size: 16px;
     text-align: justify;
     padding: 20px;
-    margin: 0; /* Remove default margin */
-    white-space: pre-line; /* Preserve new lines and white spaces */
+    margin: 0; 
+    white-space: pre-line; 
 }
 
 #audioForm{
@@ -84,9 +84,14 @@ img{
     border: none;
     padding: 10px;
     border-radius: 4px;
-    margin-bottom: 10px; /* Add margin for spacing */
+    margin-bottom: 10px; 
 }
 
+#generatedMinutes{
+    color: #2f0601;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
 button {
     background-color: #FFE8D1;
@@ -95,7 +100,7 @@ button {
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
-    cursor: pointer; /* Add cursor pointer for better user experience */
+    cursor: pointer; 
 }
 
 select {
@@ -123,21 +128,21 @@ select:focus {
     border: none;
     padding: 10px;
     border-radius: 4px;
-    margin-bottom: 10px; /* Add margin for spacing */
-    display: inline-block; /* Align with other form elements */
-    cursor: pointer; /* Add cursor pointer for better user experience */
+    margin-bottom: 10px; 
+    display: inline-block; 
+    cursor: pointer; 
 }
 
 #filesInput:hover {
-    background-color: #FFDAA6; /* Change color on hover */
+    background-color: #FFDAA6; 
 }
 
 #filesInput:focus {
-    outline: none; /* Remove default focus border */
+    outline: none; 
 }
 
 #filesInput::before {
-    content: 'Choose File'; /* Set custom text */
+    content: 'Choose File'; 
     display: inline-block;
     background-color: #EF7215;
     color: #FFF;
@@ -147,11 +152,10 @@ select:focus {
 }
 
 #filesInput::-webkit-file-upload-button {
-    visibility: hidden; /* Hide default button in Chrome */
-    display: none; /* Hide default button in other browsers */
+    visibility: hidden;
+    display: none; 
 }
 
-/* Style the file input label */
 #filesInputLabel {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #EF7215;
@@ -159,7 +163,6 @@ select:focus {
     margin-bottom: 5px;
 }
 
-/* Style the file name display */
 #filesSelected {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #EF7215;
@@ -186,10 +189,6 @@ select:focus {
         font-size: 48px;
     }
 
-    h4{
-
-    }
-
     .footertext
     {
     color: aliceblue;
@@ -210,5 +209,9 @@ select:focus {
     align-items: center;
     justify-content: center;
     }
-    
+
+    #generatedMinutes{
+        font-size: 18px;
+    }
+
 }

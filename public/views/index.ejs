@@ -62,41 +62,43 @@
         </footer>
       </div>
 
-    <script>
-      
-    function handleFile(event) {
-      const file = event.target.files[0];
-      const formData = new FormData();
-      formData.append('filesInput', file);
+      <script>
+        document.getElementById('audioForm').addEventListener('submit', function (event) {
+            event.preventDefault();
 
-      fetch('/getAnswer', {
-          method: 'POST',
-          body: formData,
-      })
-      .then(response => response.json())
-      .then(data => {
-          console.log(data);
+            const fileInput = document.getElementById('filesInput');
+            const file = fileInput.files[0];
 
-          const formattedText = data.replace(/\n/g, '<br>');
+            if (file) {
+                const formData = new FormData();
+                formData.append('filesInput', file);
 
-          document.getElementById('generatedMinutes').innerHTML = formattedText;
-      })
-      .catch(error => console.error(error));
-    }
-               
+                fetch('/getAnswer', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
 
-    function displayFileName(input) {
-        const filesSelected = document.getElementById('filesSelected');
-        filesSelected.textContent = input.files[0] ? input.files[0].name : '';
-    }
-    
-    document.getElementById('audioForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-    });
-    
-    const audioInput = document.getElementById('filesInput');
-    audioInput.addEventListener('change', handleFile);
-    
+                    const formattedText = data.replace(/\n/g, '<br>');
+
+                    document.getElementById('generatedMinutes').innerHTML = formattedText;
+                })
+                .catch(error => console.error(error));
+            } else {
+                // Handle the case where no file is selected
+                console.log('Please choose a file.');
+            }
+        });
+
+        function displayFileName(input) {
+            const filesSelected = document.getElementById('filesSelected');
+            filesSelected.textContent = input.files[0] ? input.files[0].name : '';
+        }
+
+        const audioInput = document.getElementById('filesInput');
+        audioInput.addEventListener('change', displayFileName);
     </script>
 </body>
 </html>
