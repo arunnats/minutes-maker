@@ -32,8 +32,12 @@ Bootstrap: The frontend is styled and made responsive using Bootstrap, providing
 
 Deepgram SDK: The Deepgram Nova 2 API is accessed using the official Deepgram SDK to transcribe the uploaded audio file.
 
+Google Cloud services: For handling the file storage and hosting the app
+
 ## How it Works
 Users upload an audio file in either .mp3 or .wav format using the web interface.
+
+The audio file is stored in a Google Cloud bucket and is processed from there.
 
 The app utilizes Deepgram Nova 2 to transcribe the audio content, capturing detailed information about the meeting.
 
@@ -53,7 +57,7 @@ cd minutes-maker
 npm install
 
 # Set up API keys:
-Obtain API keys for Deepgram Nova 2 and OpenAI's GPT-3.5 Turbo. Update the app.js file with your keys:
+Obtain API keys for Deepgram Nova 2 and OpenAI's GPT-3.5 Turbo. Update the config.json and google cloud bucket files with your keys:
 
 # Run the app:
 npm start
