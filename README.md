@@ -1,5 +1,7 @@
 # Minutes Maker
 
+[Preview](https://minutesmaker.arunnats.com/) 
+
 <img width="947" alt="Screenshot 2023-12-27 181401" src="https://github.com/arunnats/minutes-maker/assets/118368673/7687735d-3eee-4688-8660-18119dcc834d">
 <img width="947" alt="Screenshot 2023-12-27 181414" src="https://github.com/arunnats/minutes-maker/assets/118368673/41888492-5135-4762-a73a-c9763cffbc2e">
 <img width="947" alt="Screenshot 2023-12-27 181444" src="https://github.com/arunnats/minutes-maker/assets/118368673/4c6519c7-89e8-4b5e-b303-afdb49f68889">
@@ -32,8 +34,12 @@ Bootstrap: The frontend is styled and made responsive using Bootstrap, providing
 
 Deepgram SDK: The Deepgram Nova 2 API is accessed using the official Deepgram SDK to transcribe the uploaded audio file.
 
+Google Cloud services: For handling the file storage and hosting the app
+
 ## How it Works
 Users upload an audio file in either .mp3 or .wav format using the web interface.
+
+The audio file is stored in a Google Cloud bucket and is processed from there.
 
 The app utilizes Deepgram Nova 2 to transcribe the audio content, capturing detailed information about the meeting.
 
@@ -53,7 +59,7 @@ cd minutes-maker
 npm install
 
 # Set up API keys:
-Obtain API keys for Deepgram Nova 2 and OpenAI's GPT-3.5 Turbo. Update the app.js file with your keys:
+Obtain API keys for Deepgram Nova 2 and OpenAI's GPT-3.5 Turbo. Update the config.json and google cloud bucket files with your keys:
 
 # Run the app:
 npm start
