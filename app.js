@@ -84,7 +84,7 @@ app.post("/getAnswer", upload.single("filesInput"), async (req, res) => {
 					summary: summary,
 				};
 
-				const prompt = `Given the following transcript: ${result.transcript} and summary: ${result.summary} from a meeting, please generate the minutes of the meeting. The minutes should be concise and clear, organized by topic, and include key decisions made and action items assigned. Please do not include fields including but not limited to 'Next Meeting', 'Chair', 'Speaker', or 'Date' unless they are explicitly mentioned in the transcript. break up the summary into easy readable points.`;
+				const prompt = `Given the following transcript: "${result.transcript}" from a meeting, please generate the minutes of the meeting. The minutes should be concise and clear, organized by topic, and include key decisions made and action items assigned. Please do not include fields including but not limited to 'Next Meeting', 'Chair', 'Speaker', or 'Date' unless they are explicitly mentioned in the transcript. break up the summary into easy readable points. If the summary seems incomplete, then mention "The whole audio could not be processed`;
 
 				console.log(JSON.stringify(result, null, 2));
 
@@ -92,10 +92,15 @@ app.post("/getAnswer", upload.single("filesInput"), async (req, res) => {
 					"https://api.openai.com/v1/chat/completions",
 					{
 						messages: [
-							{ role: "system", content: "You are a helpful assistant." },
+							{
+								role: "system",
+								content:
+									"You are a helpful assistant who makes minutes for meetings",
+							},
 							{ role: "user", content: prompt },
 						],
-						model: "gpt-3.5-turbo",
+						model: "gpt-4o",
+						max_tokens: 128000,
 					},
 					{
 						headers: {
